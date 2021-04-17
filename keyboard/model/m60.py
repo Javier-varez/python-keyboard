@@ -335,7 +335,8 @@ class Backlight:
             self._hid_leds = v
             intensity = 255 if (self._hid_leds & 2) else 0
             for i in range(0, 63):
-                self.dev.update_pixel(i, intensity, intensity, intensity)
+                self.dev.pixel(i, intensity, intensity, intensity)
+            self.dev.update()
             self.refresh()
 
     def set_bt_led(self, v):
